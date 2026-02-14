@@ -107,6 +107,7 @@ button{
   transition:0.3s;
   margin-top:20px;
   font-weight:600;
+  transition: all 0.3s ease;
 }
 
 button:hover{
@@ -320,11 +321,33 @@ function openViewer(src){
 }
 
 /* MOVE BUTTON */
+let moveCount = 0;
+
 function moveButton(btn){
-  btn.style.position="relative";
-  btn.style.left=Math.random()*50+"px";
-  btn.style.top=Math.random()*20+"px";
+
+  moveCount++;
+
+  // After 5 tries, stop moving
+  if(moveCount >= 5){
+    btn.innerText = "Nice try Sweetu 😘";
+    btn.style.position = "static";
+    btn.style.transform = "scale(1.05)";
+    btn.style.background = "#ff4b6e";
+    btn.style.color = "white";
+    return;
+  }
+
+  const section = btn.parentElement;
+  const sectionRect = section.getBoundingClientRect();
+
+  const maxX = sectionRect.width - btn.offsetWidth - 20;
+  const maxY = sectionRect.height - btn.offsetHeight - 20;
+
+  btn.style.position = "absolute";
+  btn.style.left = Math.random() * maxX + "px";
+  btn.style.top = Math.random() * maxY + "px";
 }
+
 
 /* TYPEWRITER */
 function typeLetter(){
@@ -352,3 +375,4 @@ window.addEventListener("scroll",()=>{
 
 </body>
 </html>
+
