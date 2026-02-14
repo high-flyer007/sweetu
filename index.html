@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Sweetu ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#fbc2eb,#a18cd1);
+  background-size:400% 400%;
+  animation:gradientBG 15s ease infinite;
+  color:white;
+  overflow-x:hidden;
+}
+
+@keyframes gradientBG{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* ===== FLASH ===== */
+.flash{
+  position:fixed;
+  inset:0;
+  background:white;
+  opacity:0;
+  pointer-events:none;
+  z-index:1800;
+}
+
+/* ===== LOADER ===== */
+#loader{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#000000,#1a1a2e);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:2000;
+  transition:opacity 1.5s ease;
+}
+
+#loader h1{
+  font-family:'Playfair Display',serif;
+  font-size:3rem;
+}
+
+#loader p{
+  margin-top:10px;
+  color:#ff9a9e;
+}
+
+/* ===== SECTIONS ===== */
+section{
+  min-height:100vh;
+  padding:100px 20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  text-align:center;
+  background:rgba(0,0,0,0.25);
+  backdrop-filter:blur(5px);
+}
+
+h1,h2{
+  font-family:'Playfair Display',serif;
+  text-shadow:0 4px 15px rgba(0,0,0,0.6);
+}
+
+h1{font-size:4rem;}
+h2{font-size:2.5rem;margin-bottom:20px;}
+
+p{
+  max-width:800px;
+  margin:15px auto;
+  line-height:1.8;
+  font-size:1.1rem;
+  text-shadow:0 2px 8px rgba(0,0,0,0.7);
+}
+
+button{
+  padding:15px 35px;
+  border-radius:30px;
+  border:none;
+  font-size:1rem;
+  cursor:pointer;
+  background:white;
+  color:#ff4b6e;
+  transition:0.3s;
+  margin-top:20px;
+  font-weight:600;
+}
+
+button:hover{
+  background:#ff4b6e;
+  color:white;
+}
+
+/* ===== FADE ===== */
+.fade-in{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
+}
+.fade-in.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ===== GALLERY ===== */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.gallery img{
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  border-radius:20px;
+  cursor:pointer;
+  transition:0.5s;
+  box-shadow:0 15px 30px rgba(0,0,0,0.5);
+}
+
+.gallery img:hover{
+  transform:scale(1.05);
+}
+
+/* ===== FULLSCREEN VIEWER ===== */
+#viewer{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
+  z-index:1500;
+}
+
+#viewer img{
+  max-width:90%;
+  max-height:80%;
+  border-radius:20px;
+}
+
+/* ===== PARTICLES ===== */
+.particle{
+  position:fixed;
+  width:6px;
+  height:6px;
+  background:white;
+  border-radius:50%;
+  opacity:0.6;
+  animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0);}
+  to{transform:translateY(-100vh);}
+}
+
+/* ===== ELEGANT HEARTS ===== */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:18px;
+  color:rgba(255,255,255,0.6);
+  animation:floatHeart linear infinite;
+  pointer-events:none;
+  z-index:0;
+}
+
+@keyframes floatHeart{
+  0%{transform:translateY(0) scale(1);opacity:0.7;}
+  100%{transform:translateY(-110vh) scale(1.4);opacity:0;}
+}
+
+/* ===== HEARTBEAT ===== */
+.heartbeat{
+  display:inline-block;
+  animation:heartbeat 2.5s infinite;
+  font-weight:600;
+}
+
+@keyframes heartbeat{
+  0%{transform:scale(1);}
+  14%{transform:scale(1.1);}
+  28%{transform:scale(1);}
+  42%{transform:scale(1.1);}
+  70%{transform:scale(1);}
+}
+
+.counter{
+  font-size:2rem;
+  margin-top:20px;
+  font-weight:600;
+}
+
+.no-btn{position:relative;}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <h1>For My Sweetu 🦉💗</h1>
+  <p>Loading our love story...</p>
+</div>
+
+<div class="flash" id="flash"></div>
+
+<section class="fade-in">
+  <h1>Happy Valentine’s Day Arpita ❤️</h1>
+  <p>My Sweetu. My Sleepy Owl 🦉💗</p>
+  <button onclick="scrollToSection()">Enter Our Story</button>
+</section>
+
+<section class="fade-in" id="story">
+  <h2>From School Friends To Soulmates</h2>
+  <p>We were just school friends once.</p>
+  <p>Life made us lose touch.</p>
+  <p>But destiny had different plans.</p>
+  <p>And now I have you again — not just as my friend, but as my forever.</p>
+</section>
+
+<section class="fade-in">
+  <h2>Since The Day We Became Us 💞</h2>
+  <div class="counter" id="counter"></div>
+</section>
+
+<section class="fade-in">
+  <h2>Moments With My Sweetu 📸</h2>
+  <div class="gallery">
+    <img src="arpita1.jpeg" onclick="openViewer(this.src)">
+    <img src="arpita2.jpeg" onclick="openViewer(this.src)">
+    <img src="arpita3.jpeg" onclick="openViewer(this.src)">
+    <img src="arpita4.jpeg" onclick="openViewer(this.src)">
+    <img src="arpita5.jpeg" onclick="openViewer(this.src)">
+    <img src="arpita6.jpeg" onclick="openViewer(this.src)">
+  </div>
+</section>
+
+<section class="fade-in">
+  <h2>A Letter For You 💌</h2>
+  <button onclick="typeLetter()">Open My Heart</button>
+  <p id="letter"></p>
+</section>
+
+<section class="fade-in">
+  <h2>One Important Question 💍</h2>
+  <p>Will you stay with me forever?</p>
+  <button onclick="alert('I knew it ❤️')">Yes 💖</button>
+  <button class="no-btn" onmouseover="moveButton(this)">No 😏</button>
+</section>
+
+<section id="hiddenMessage" style="opacity:0; transition:2s ease; background:rgba(0,0,0,0.4);">
+  <h2>One Last Thing…</h2>
+  <p>
+    If you’re reading this, it means you scrolled all the way down.  
+    That’s kind of how I want us to be.  
+    No matter how far life goes…  
+    We always reach the end together. ❤️  
+    <br><br>
+    <span class="heartbeat">I love you, Sweetu. ❤️</span>
+    <br>
+    More than you’ll ever fully know.
+  </p>
+</section>
+
+<div id="viewer" onclick="this.style.display='none'">
+  <img id="viewer-img">
+</div>
+
+<script>
+
+/* LOADER + FLASH */
+window.addEventListener("load", function(){
+  setTimeout(() => {
+    const flash = document.getElementById("flash");
+    flash.style.opacity = "0.8";
+    setTimeout(() => {
+      flash.style.transition = "opacity 1s ease";
+      flash.style.opacity = "0";
+    }, 200);
+
+    document.getElementById("loader").style.opacity = "0";
+    setTimeout(() => {
+      document.getElementById("loader").style.display = "none";
+    }, 1200);
+  }, 3000);
+});
+
+/* SCROLL */
+function scrollToSection(){
+  document.getElementById("story").scrollIntoView({behavior:"smooth"});
+}
+
+/* FADE */
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+    }
+  });
+});
+document.querySelectorAll(".fade-in").forEach(el=>observer.observe(el));
+
+/* DATE COUNTER */
+let startDate=new Date("December 28, 2025 00:00:00");
+function updateCounter(){
+  let now=new Date();
+  let diff=now-startDate;
+  let days=Math.floor(diff/(1000*60*60*24));
+  let hours=Math.floor((diff/(1000*60*60))%24);
+  let minutes=Math.floor((diff/(1000*60))%60);
+  let seconds=Math.floor((diff/1000)%60);
+  document.getElementById("counter").innerText=
+    days+" Days "+hours+" Hours "+minutes+" Minutes "+seconds+" Seconds ❤️";
+}
+setInterval(updateCounter,1000);
+updateCounter();
+
+/* IMAGE VIEWER */
+function openViewer(src){
+  document.getElementById("viewer").style.display="flex";
+  document.getElementById("viewer-img").src=src;
+}
+
+/* MOVING BUTTON */
+function moveButton(btn){
+  btn.style.position="absolute";
+  btn.style.left=Math.random()*80+"%";
+  btn.style.top=Math.random()*80+"%";
+}
+
+/* TYPEWRITER */
+function typeLetter(){
+  let text="Arpita, finding you again was never luck. It was destiny correcting itself. I choose you — today, tomorrow, and in every lifetime. ❤️";
+  let i=0;
+  document.getElementById("letter").innerHTML="";
+  function type(){
+    if(i<text.length){
+      document.getElementById("letter").innerHTML+=text.charAt(i);
+      i++;
+      setTimeout(type,40);
+    }
+  }
+  type();
+}
+
+/* PARTICLES */
+setInterval(()=>{
+  let p=document.createElement("div");
+  p.className="particle";
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=(Math.random()*5+5)+"s";
+  document.body.appendChild(p);
+  setTimeout(()=>p.remove(),8000);
+},200);
+
+/* FLOATING HEARTS */
+setInterval(()=>{
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(Math.random()*15+12)+"px";
+  heart.style.animationDuration=(Math.random()*6+6)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),12000);
+},1500);
+
+/* HIDDEN MESSAGE FADE */
+window.addEventListener("scroll", function(){
+  const hidden=document.getElementById("hiddenMessage");
+  const scrollPosition=window.innerHeight+window.scrollY;
+  const pageHeight=document.body.offsetHeight;
+  if(scrollPosition>=pageHeight-50){
+    hidden.style.opacity="1";
+  }
+});
+
+</script>
+
+</body>
+</html>
